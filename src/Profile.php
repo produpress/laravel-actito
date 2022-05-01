@@ -20,12 +20,13 @@ class Profile
     /**
      * Show a profile
      *
-     * @param int $profileId
-     * @return array|null
+     * @return array|null profile data or null if not found
      */
     public function show(): array | null
     {
-        $url = '/entity/' . $this->entity . '/table/' . $this->table . '/profile/' . $this->profileId;
+        $url = '/entity/' . $this->entity
+            . '/table/' . $this->table
+            . '/profile/' . $this->profileId;
         $response = $this->client->get($url);
 
         return $response->json();
@@ -34,12 +35,14 @@ class Profile
     /**
      * Update or create a profile
      *
-     * @param array $profile
-     * @return int|null
+     * @param array $profile profile data
+     * @return int|null profile id or null
      */
     public function store(array $profile): int | null
     {
-        $url = '/entity/' . $this->entity . '/table/' . $this->table . '/profile';
+        $url = '/entity/' . $this->entity
+            . '/table/' . $this->table
+            . '/profile';
         $response = $this->client->post($url, $profile);
 
         return $response->json('profileId');
@@ -52,7 +55,8 @@ class Profile
      */
     public function delete(): bool
     {
-        $url = '/entity/' . $this->entity . '/table/' . $this->table
+        $url = '/entity/' . $this->entity
+            . '/table/' . $this->table
             . '/profile/' . $this->profileId;
         $response = $this->client->delete($url);
 
@@ -66,8 +70,10 @@ class Profile
      */
     public function subscriptions(): array | null
     {
-        $url = '/entity/' . $this->entity . '/table/' . $this->table
-            . '/profile/' . $this->profileId . '/subscription';
+        $url = '/entity/' . $this->entity
+            . '/table/' . $this->table
+            . '/profile/' . $this->profileId
+            . '/subscription';
         $response = $this->client->get($url);
 
         return $response->json('subscriptions');
@@ -81,8 +87,10 @@ class Profile
      */
     public function subscribe(string $subscriptionName): bool
     {
-        $url = '/entity/' . $this->entity . '/table/' . $this->table
-            . '/profile/' . $this->profileId . '/subscription/' . $subscriptionName;
+        $url = '/entity/' . $this->entity
+            . '/table/' . $this->table
+            . '/profile/' . $this->profileId
+            . '/subscription/' . $subscriptionName;
         $response = $this->client->post($url);
 
         return $response->successful();
@@ -96,8 +104,10 @@ class Profile
      */
     public function unsubscribe(string $subscriptionName): bool
     {
-        $url = '/entity/' . $this->entity . '/table/' . $this->table
-            . '/profile/' . $this->profileId . '/subscription/' . $subscriptionName;
+        $url = '/entity/' . $this->entity
+            . '/table/' . $this->table
+            . '/profile/' . $this->profileId
+            . '/subscription/' . $subscriptionName;
         $response = $this->client->delete($url);
 
         return $response->successful();
@@ -110,8 +120,10 @@ class Profile
      */
     public function segmentations(): array | null
     {
-        $url = '/entity/' . $this->entity . '/table/' . $this->table
-            . '/profile/' . $this->profileId . '/segmentation';
+        $url = '/entity/' . $this->entity
+            . '/table/' . $this->table
+            . '/profile/' . $this->profileId
+            . '/segmentation';
         $response = $this->client->get($url);
 
         return $response->json('segmentation');
@@ -125,8 +137,10 @@ class Profile
      */
     public function segment(string $segmentationName): bool
     {
-        $url = '/entity/' . $this->entity . '/table/' . $this->table
-            . '/profile/' . $this->profileId . '/segmentation/' . $segmentationName;
+        $url = '/entity/' . $this->entity
+            . '/table/' . $this->table
+            . '/profile/' . $this->profileId
+            . '/segmentation/' . $segmentationName;
         $response = $this->client->put($url);
 
         return $response->successful();
@@ -141,8 +155,10 @@ class Profile
      */
     public function unsegment(string $segmentationName): bool
     {
-        $url = '/entity/' . $this->entity . '/table/' . $this->table .
-            '/profile/' . $this->profileId . '/segmentation/' . $segmentationName;
+        $url = '/entity/' . $this->entity
+            . '/table/' . $this->table
+            . '/profile/' . $this->profileId
+            . '/segmentation/' . $segmentationName;
         $response = $this->client->delete($url);
 
         return $response->successful();
