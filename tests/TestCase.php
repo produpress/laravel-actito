@@ -2,8 +2,8 @@
 
 namespace Produpress\Actito\Tests;
 
-use Produpress\Actito\ActitoServiceProvider;
 use Orchestra\Testbench\TestCase as OrchestraTestCase;
+use Produpress\Actito\ActitoServiceProvider;
 
 class TestCase extends OrchestraTestCase
 {
