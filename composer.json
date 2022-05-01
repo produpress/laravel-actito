@@ -1,9 +1,10 @@
 {
-    "name": "produpress/laravel-actito",
+    "name": "produpress/actito",
     "description": "Actito for Laravel",
     "keywords": [
         "produpress",
-        "laravel-actito"
+        "laravel",
+        "actito"
     ],
     "homepage": "https://github.com/produpress/laravel-actito",
     "license": "MIT",
@@ -15,11 +16,14 @@
         }
     ],
     "require": {
-        "php": "^8.0"
+        "php": "^7.4|^8.0",
+        "illuminate/support": "^8.0|^9.0"
     },
     "require-dev": {
         "friendsofphp/php-cs-fixer": "^3.0",
+        "orchestra/testbench": "^6.0|^7.0",
         "pestphp/pest": "^1.20",
+        "phpunit/phpunit": "^9.5",
         "spatie/ray": "^1.28"
     },
     "autoload": {
@@ -30,6 +34,16 @@
     "autoload-dev": {
         "psr-4": {
             "Produpress\\Actito\\Tests\\": "tests"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Produpress\\Actito\\ActitoServiceProvider"
+            ],
+            "aliases": {
+                "Actito": "Produpress\\Actito\\Facades\\Actito"
+            }
         }
     },
     "scripts": {
