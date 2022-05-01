@@ -1,7 +1,13 @@
 
 # Actito for Laravel
 
-Actito (v4) for Laravel
+A package for the [Laravel Framework](https://laravel.com/) to interact with [Actito API](https://developers.actito.com/api-reference/menu).
+
+> Under heavy development
+
+
+Currently supporting:
+- Profiles (https://developers.actito.com/api-reference/data-v4#tag/Profiles)
 
 
 ## Installation
@@ -41,6 +47,13 @@ Please review [our security policy](../../security/policy) on how to report secu
 
 - [Maxime Nokin](https://github.com/mnokin)
 - [All Contributors](../../contributors)
+
+## Thanks
+
+- [Laravel Package Development](https://laravelpackage.com/)
+- [The skeleton package from Spatie](https://github.com/spatie/package-skeleton-laravel)
+- [cherrypulp/laravel-actito](https://gitlab.com/cherrypulp/libraries/laravel-actito)
+
 
 ## License
 
