@@ -24,7 +24,6 @@ class ActitoServiceProvider extends ServiceProvider
     public function boot()
     {
         if ($this->app->runningInConsole()) {
-
             $this->publishes([
                 __DIR__ . '/../config/actito.php' => config_path('actito.php'),
             ], 'config');
@@ -33,6 +32,5 @@ class ActitoServiceProvider extends ServiceProvider
                 InstallActito::class,
             ]);
         }
-
     }
 }
