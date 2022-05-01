@@ -2,15 +2,11 @@
 
 namespace Produpress\Actito;
 
-use Illuminate\Support\Facades\Http;
-use Illuminate\Support\Facades\Cache;
-
 class Actito
 {
     public string $entity;
     public string $table;
     public $client;
-
 
     /**
      * Actito
@@ -23,7 +19,7 @@ class Actito
      */
     public function __construct(string $uri, string $entity, string $table, string $key)
     {
-        $this->client =  new Client($uri, $key);
+        $this->client = new Client($uri, $key);
         $this->entity = $entity;
         $this->table = $table;
     }
@@ -36,6 +32,7 @@ class Actito
     public function profile(int $profileId = null)
     {
         $profile = new Profile($this->client, $this->entity, $this->table, $profileId);
+
         return $profile;
     }
 
@@ -48,6 +45,7 @@ class Actito
     public function entity(string $entity)
     {
         $this->entity = $entity;
+
         return $this;
     }
 
@@ -60,6 +58,7 @@ class Actito
     public function table(string $table)
     {
         $this->table = $table;
+
         return $this;
     }
 }
