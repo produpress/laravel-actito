@@ -4,7 +4,6 @@ namespace Produpress\Actito;
 
 class Actito
 {
-
     /**
      * Profile
      *
@@ -44,6 +43,7 @@ class Actito
         foreach ($inputData as $key => $value) {
             $outpudData[] = ['name' => $key, $valueName => $value];
         }
+
         return $outpudData;
     }
 }

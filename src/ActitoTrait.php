@@ -15,7 +15,6 @@ trait ActitoTrait
      */
     private function settings()
     {
-
         $this->entity = config('actito.entity');
         $this->table = config('actito.table');
         $this->client = new Client();
@@ -46,6 +45,4 @@ trait ActitoTrait
 
         return $this;
     }
-
-
 }
