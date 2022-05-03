@@ -49,13 +49,13 @@ class InstallActito extends Command
     {
         $params = [
             '--provider' => "Produpress\Actito\ActitoServiceProvider",
-            '--tag' => "config"
+            '--tag' => "config",
         ];
 
         if ($forcePublish === true) {
             $params['--force'] = true;
         }
 
-       $this->call('vendor:publish', $params);
+        $this->call('vendor:publish', $params);
     }
 }
