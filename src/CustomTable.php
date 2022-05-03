@@ -4,7 +4,6 @@ namespace Produpress\Actito;
 
 class CustomTable
 {
-
     use ActitoTrait;
 
     public string $customTableId;
@@ -48,6 +47,7 @@ class CustomTable
             . '/customTable/' . $this->customTableId
             . '/record';
         $response = $this->client->post($url, $record);
+
         return $response->json('businessKey');
     }
 

@@ -2,10 +2,8 @@
 
 namespace Produpress\Actito;
 
-use Illuminate\Http\Client\PendingRequest;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Http;
-
 
 class Client
 {

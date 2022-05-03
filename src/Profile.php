@@ -4,7 +4,6 @@ namespace Produpress\Actito;
 
 class Profile
 {
-
     use ActitoTrait;
 
     public ?int $profileId;
@@ -43,6 +42,7 @@ class Profile
             . '/profile';
         $response = $this->client->post($url, $profile);
         $this->profileId = $response->json('profileId');
+
         return $this->profileId;
     }
 
