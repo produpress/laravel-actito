@@ -6,26 +6,21 @@ use Illuminate\Http\Client\PendingRequest;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Http;
 
+
 class Client
 {
     public string $uri;
     private string $key;
-    private PendingRequest $http;
 
     /**
      * Actito Http Client
      *
-     * @param string $uri
-     * @param string $entity
-     * @param string $table
-     * @param string $key
      * @return void
      */
-    public function __construct(string $uri, string $key)
+    public function __construct()
     {
-        $this->uri = $uri;
-        $this->key = $key;
-        $this->http = Http::withToken($this->token());
+        $this->uri = config('actito.uri');
+        $this->key = config('actito.key');
     }
 
     /**
@@ -52,7 +47,7 @@ class Client
      */
     public function get(string $url)
     {
-        return $this->http->get($this->uri . 'v4' . $url);
+        return Http::withToken($this->token())->get($this->uri . $url);
     }
 
     /**
@@ -64,7 +59,7 @@ class Client
      */
     public function post(string $url, array $data = null)
     {
-        return $this->http->post($this->uri . 'v4' .$url, $data);
+        return Http::withToken($this->token())->post($this->uri . $url, $data);
     }
 
     /**
@@ -76,7 +71,7 @@ class Client
      */
     public function put(string $url, array $data = null)
     {
-        return $this->http->put($this->uri . 'v4' .$url, $data);
+        return Http::withToken($this->token())->put($this->uri . $url, $data);
     }
 
     /**
@@ -87,6 +82,6 @@ class Client
      */
     public function delete(string $url)
     {
-        return $this->http->delete($this->uri . 'v4' .$url);
+        return Http::withToken($this->token())->delete($this->uri . $url);
     }
 }

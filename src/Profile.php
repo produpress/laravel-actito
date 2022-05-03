@@ -4,17 +4,15 @@ namespace Produpress\Actito;
 
 class Profile
 {
-    private Client $client;
-    public string $entity;
-    public string $table;
+
+    use ActitoTrait;
+
     public ?int $profileId;
 
-    public function __construct(Client $client, string $entity, string $table, int $profileId = null)
+    public function __construct(int $profileId = null)
     {
+        $this->settings();
         $this->profileId = $profileId;
-        $this->entity = $entity;
-        $this->table = $table;
-        $this->client = $client;
     }
 
     /**
@@ -22,9 +20,9 @@ class Profile
      *
      * @return array|null profile data or null if not found
      */
-    public function show(): array | null
+    public function get(): array | null
     {
-        $url = '/entity/' . $this->entity
+        $url = 'v4/entity/' . $this->entity
             . '/table/' . $this->table
             . '/profile/' . $this->profileId;
         $response = $this->client->get($url);
@@ -38,14 +36,14 @@ class Profile
      * @param array $profile profile data
      * @return int|null profile id or null
      */
-    public function store(array $profile): int | null
+    public function save(array $profile): int | null
     {
-        $url = '/entity/' . $this->entity
+        $url = 'v4/entity/' . $this->entity
             . '/table/' . $this->table
             . '/profile';
         $response = $this->client->post($url, $profile);
-
-        return $response->json('profileId');
+        $this->profileId = $response->json('profileId');
+        return $this->profileId;
     }
 
     /**
@@ -55,7 +53,7 @@ class Profile
      */
     public function delete(): bool
     {
-        $url = '/entity/' . $this->entity
+        $url = 'v4/entity/' . $this->entity
             . '/table/' . $this->table
             . '/profile/' . $this->profileId;
         $response = $this->client->delete($url);
@@ -70,7 +68,7 @@ class Profile
      */
     public function subscriptions(): array | null
     {
-        $url = '/entity/' . $this->entity
+        $url = 'v4/entity/' . $this->entity
             . '/table/' . $this->table
             . '/profile/' . $this->profileId
             . '/subscription';
@@ -87,7 +85,7 @@ class Profile
      */
     public function subscribe(string $subscriptionName): bool
     {
-        $url = '/entity/' . $this->entity
+        $url = 'v4/entity/' . $this->entity
             . '/table/' . $this->table
             . '/profile/' . $this->profileId
             . '/subscription/' . $subscriptionName;
@@ -104,7 +102,7 @@ class Profile
      */
     public function unsubscribe(string $subscriptionName): bool
     {
-        $url = '/entity/' . $this->entity
+        $url = 'v4/entity/' . $this->entity
             . '/table/' . $this->table
             . '/profile/' . $this->profileId
             . '/subscription/' . $subscriptionName;
@@ -120,7 +118,7 @@ class Profile
      */
     public function segmentations(): array | null
     {
-        $url = '/entity/' . $this->entity
+        $url = 'v4/entity/' . $this->entity
             . '/table/' . $this->table
             . '/profile/' . $this->profileId
             . '/segmentation';
@@ -137,7 +135,7 @@ class Profile
      */
     public function segment(string $segmentationName): bool
     {
-        $url = '/entity/' . $this->entity
+        $url = 'v4/entity/' . $this->entity
             . '/table/' . $this->table
             . '/profile/' . $this->profileId
             . '/segmentation/' . $segmentationName;
@@ -155,7 +153,7 @@ class Profile
      */
     public function unsegment(string $segmentationName): bool
     {
-        $url = '/entity/' . $this->entity
+        $url = 'v4/entity/' . $this->entity
             . '/table/' . $this->table
             . '/profile/' . $this->profileId
             . '/segmentation/' . $segmentationName;

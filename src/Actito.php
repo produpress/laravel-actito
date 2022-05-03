@@ -4,61 +4,46 @@ namespace Produpress\Actito;
 
 class Actito
 {
-    public string $entity;
-    public string $table;
-    public $client;
 
     /**
-     * Actito
+     * Profile
      *
-     * @param string $uri
-     * @param string $entity
-     * @param string $table
-     * @param string $key
-     * @return void
-     */
-    public function __construct(string $uri, string $entity, string $table, string $key)
-    {
-        $this->client = new Client($uri, $key);
-        $this->entity = $entity;
-        $this->table = $table;
-    }
-
-    /**
+     * @link https://developers.actito.com/api-reference/data-v4/#tag/Profiles
      *
      * @param int|null $profileId
      * @return Profile
      */
     public function profile(int $profileId = null)
     {
-        $profile = new Profile($this->client, $this->entity, $this->table, $profileId);
-
-        return $profile;
+        return new Profile($profileId);
     }
 
     /**
-     * Set entity
+     * Custom table
      *
-     * @param string $entity
-     * @return $this
+     * @link https://developers.actito.com/api-reference/data-v4/#tag/Custom-Table-Records
+     *
+     * @param string $customTableId
+     * @return CustomTable
      */
-    public function entity(string $entity)
+    public function customTable(string $customTableId)
     {
-        $this->entity = $entity;
-
-        return $this;
+        return new CustomTable($customTableId);
     }
 
     /**
-     * Set table
+     * Convert simple array to paired name/value array
      *
-     * @param string $table
-     * @return $this
+     * @param array $inputData
+     * @param string $valueName
+     * @return array
      */
-    public function table(string $table)
+    public function namedValues(array $inputData, string $valueName = 'value'): array
     {
-        $this->table = $table;
-
-        return $this;
+        $outpudData = [];
+        foreach ($inputData as $key => $value) {
+            $outpudData[] = ['name' => $key, $valueName => $value];
+        }
+        return $outpudData;
     }
 }
