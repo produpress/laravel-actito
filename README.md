@@ -12,17 +12,39 @@ Currently supporting:
 
 ## Installation
 
-You can install the package via composer:
+You may install the package via composer:
 
 ```bash
 composer require produpress/laravel-actito
+```
+
+
+## Configuration
+Setup the environment variables
+
+```
+ACTITO_URI=https://api3.actito.com/
+ACTITO_KEY=0123456789abcdf0123456789abcdef
+#Default entity
+ACTITO_ENTITY=EntityName
+#Default table
+ACTITO_TABLE=6
+```
+
+You may also publish the config file with
+
+```bash
+php artisan actito:install
 ```
 
 ## Usage
 
 ```php
 //Display a profile from a table
-Actito::entity('YourEntityName')->table('2')->profile(1465)->show();
+Actito::profile(1465)->get();
+
+//Display a profile from a table and specify the entity and the table Id
+Actito::profile(1465)->entity('YourEntityName')->table('2')->get();
 ```
 
 ## Testing
@@ -50,6 +72,7 @@ Please review [our security policy](../../security/policy) on how to report secu
 
 ## Thanks
 
+Whit the help of:
 - [Laravel Package Development](https://laravelpackage.com/)
 - [The skeleton package from Spatie](https://github.com/spatie/package-skeleton-laravel)
 - [cherrypulp/laravel-actito](https://gitlab.com/cherrypulp/libraries/laravel-actito)
