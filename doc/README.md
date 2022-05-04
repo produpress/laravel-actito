@@ -4,28 +4,28 @@
 
 | Method | Description |
 |--------|-------------|
-| [**Actito**](#Actito) |  |
+| [**Actito**](#Actito) | Wrapper for Actito API |
 | [Actito::profile](#Actitoprofile) | Profile |
 | [Actito::customTable](#ActitocustomTable) | Custom table |
 | [Actito::namedValues](#ActitonamedValues) | Convert simple array to paired name/value array |
-| [**Actito**](#Actito) |  |
-| [**ActitoServiceProvider**](#ActitoServiceProvider) |  |
+| [**Actito**](#Actito) | Actito Facade |
+| [**ActitoServiceProvider**](#ActitoServiceProvider) | Actito Service Provider for Laravel |
 | [ActitoServiceProvider::register](#ActitoServiceProviderregister) |  |
 | [ActitoServiceProvider::boot](#ActitoServiceProviderboot) |  |
-| [**Client**](#Client) |  |
+| [**Client**](#Client) | Wrapper for the Laravel Http client that adds the Actito token to the request |
 | [Client::__construct](#Client__construct) | Actito Http Client |
 | [Client::get](#Clientget) | Http get |
 | [Client::post](#Clientpost) | Http post |
 | [Client::put](#Clientput) | Http put |
 | [Client::delete](#Clientdelete) | Http delete |
-| [**CustomTable**](#CustomTable) |  |
+| [**CustomTable**](#CustomTable) | Interface for Actito DATA API V4 Profile |
 | [CustomTable::__construct](#CustomTable__construct) |  |
 | [CustomTable::get](#CustomTableget) | Show a record |
 | [CustomTable::save](#CustomTablesave) | Update or create a record |
 | [CustomTable::delete](#CustomTabledelete) | Delete a record |
 | [**InstallActito**](#InstallActito) |  |
 | [InstallActito::handle](#InstallActitohandle) |  |
-| [**Profile**](#Profile) |  |
+| [**Profile**](#Profile) | Interface for Actito DATA API V4 Profile |
 | [Profile::__construct](#Profile__construct) |  |
 | [Profile::get](#Profileget) | Show a profile |
 | [Profile::save](#Profilesave) | Update or create a profile |
@@ -39,7 +39,7 @@
 
 ## Actito
 
-
+Wrapper for Actito API
 
 
 
@@ -130,7 +130,7 @@ Actito::namedValues( array inputData, string valueName = 'value' ): array
 ---
 ## Actito
 
-
+Actito Facade
 
 
 
@@ -140,7 +140,7 @@ Actito::namedValues( array inputData, string valueName = 'value' ): array
 
 ## ActitoServiceProvider
 
-
+Actito Service Provider for Laravel
 
 
 
@@ -188,7 +188,7 @@ ActitoServiceProvider::boot(  ): mixed
 ---
 ## Client
 
-
+Wrapper for the Laravel Http client that adds the Actito token to the request
 
 
 
@@ -318,12 +318,15 @@ Client::delete( string url ): mixed
 ---
 ## CustomTable
 
-
+Interface for Actito DATA API V4 Profile
 
 
 
 * Full name: \Produpress\Actito\CustomTable
 
+**See Also:**
+
+* https://developers.actito.com/api-reference/data-v4/#tag/Custom-Table-Records - 
 
 ### CustomTable::__construct
 
@@ -373,6 +376,9 @@ CustomTable::get( string recordId ): array|null
 profile data or null if not found
 
 
+**See Also:**
+
+* https://developers.actito.com/api-reference/data-v4/#operation/customtables-records-get-one - 
 
 ---
 ### CustomTable::save
@@ -398,6 +404,9 @@ CustomTable::save( array record ): int|null
 record id or null
 
 
+**See Also:**
+
+* https://developers.actito.com/api-reference/data-v4/#operation/customtables-records-createorupdate - 
 
 ---
 ### CustomTable::delete
@@ -423,6 +432,9 @@ CustomTable::delete( string recordId ): bool
 
 
 
+**See Also:**
+
+* https://developers.actito.com/api-reference/data-v4/#operation/customtables-records-delete-one - 
 
 ---
 ## InstallActito
@@ -456,12 +468,15 @@ InstallActito::handle(  ): mixed
 ---
 ## Profile
 
-
+Interface for Actito DATA API V4 Profile
 
 
 
 * Full name: \Produpress\Actito\Profile
 
+**See Also:**
+
+* https://developers.actito.com/api-reference/data-v4/#tag/Profiles - 
 
 ### Profile::__construct
 
@@ -511,6 +526,9 @@ Profile::get( int profileId ): array|null
 profile data or null if not found
 
 
+**See Also:**
+
+* https://developers.actito.com/api-reference/data-v4#operation/profiles-get-one - 
 
 ---
 ### Profile::save
@@ -536,6 +554,9 @@ Profile::save( array profile ): int|null
 profile id or null
 
 
+**See Also:**
+
+* https://developers.actito.com/api-reference/data-v4#operation/profiles-update-one - 
 
 ---
 ### Profile::delete
@@ -561,6 +582,9 @@ Profile::delete( int profileId ): bool
 
 
 
+**See Also:**
+
+* https://developers.actito.com/api-reference/data-v4/#operation/profiles-delete-one - 
 
 ---
 ### Profile::subscriptions
@@ -586,6 +610,9 @@ Profile::subscriptions( int profileId ): array|null
 
 
 
+**See Also:**
+
+* https://developers.actito.com/api-reference/data-v4/#operation/profiles-subscriptions-get-all - 
 
 ---
 ### Profile::subscribe
@@ -612,6 +639,9 @@ Profile::subscribe( int profileId, string subscriptionName ): bool
 
 
 
+**See Also:**
+
+* https://developers.actito.com/api-reference/data-v4/#operation/profiles-subscriptions-add - 
 
 ---
 ### Profile::unsubscribe
@@ -638,6 +668,9 @@ Profile::unsubscribe( int profileId, string subscriptionName ): bool
 
 
 
+**See Also:**
+
+* https://developers.actito.com/api-reference/data-v4/#operation/profiles-subscriptions-delete-one - 
 
 ---
 ### Profile::segmentations
@@ -663,6 +696,9 @@ Profile::segmentations( int profileId ): array|null
 
 
 
+**See Also:**
+
+* https://developers.actito.com/api-reference/data-v4/#operation/profiles-segmentations-get-all - 
 
 ---
 ### Profile::segment
@@ -689,6 +725,9 @@ Profile::segment( int profileId, string segmentationName ): bool
 
 
 
+**See Also:**
+
+* https://developers.actito.com/api-reference/data-v4/#operation/profiles-segmentations-createorupdate - 
 
 ---
 ### Profile::unsegment
@@ -716,5 +755,8 @@ Profile::unsegment( int profileId, string segmentationName ): bool
 
 
 
+**See Also:**
+
+* https://developers.actito.com/api-reference/data-v4/#operation/profiles-segmentations-delete-one - 
 
 ---

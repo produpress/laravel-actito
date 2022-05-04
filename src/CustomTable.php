@@ -2,6 +2,16 @@
 
 namespace Produpress\Actito;
 
+/**
+ * Interface for Actito DATA API V4 Profile
+ *
+ * @link https://developers.actito.com/api-reference/data-v4/#tag/Custom-Table-Records
+ *
+ * @todo Add list of records method
+ * @todo Add update a record method
+ *
+ * @package Produpress\Actito
+ */
 class CustomTable
 {
     use ActitoTrait;
@@ -22,6 +32,8 @@ class CustomTable
     /**
      * Show a record
      *
+     * @link https://developers.actito.com/api-reference/data-v4/#operation/customtables-records-get-one
+     *
      * @param string $recordId
      * @return array|null profile data or null if not found
      */
@@ -38,6 +50,8 @@ class CustomTable
     /**
      * Update or create a record
      *
+     * @link https://developers.actito.com/api-reference/data-v4/#operation/customtables-records-createorupdate
+     *
      * @param array $record record data
      * @return int|null record id or null
      */
@@ -53,6 +67,8 @@ class CustomTable
 
     /**
      * Delete a record
+     *
+     * @link https://developers.actito.com/api-reference/data-v4/#operation/customtables-records-delete-one
      *
      * @return bool
      */

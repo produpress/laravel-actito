@@ -49,6 +49,8 @@ Actito::profile(8)->entity('AnotherEntity')->get(456);
 $profileId = Actito::profile()->save($profileData);
 ```
 
+More in [Documentation](doc/)
+
 ## Changelog
 
 Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed recently.
@@ -68,7 +70,8 @@ Please review [our security policy](../../security/policy) on how to report secu
 
 ## Thanks
 
-Whit the help of:
+With the help of:
+
 - [Laravel Package Development](https://laravelpackage.com/)
 - [The skeleton package from Spatie](https://github.com/spatie/package-skeleton-laravel)
 - [cherrypulp/laravel-actito](https://gitlab.com/cherrypulp/libraries/laravel-actito)

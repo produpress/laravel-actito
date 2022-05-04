@@ -5,6 +5,11 @@ namespace Produpress\Actito;
 use Illuminate\Support\ServiceProvider;
 use Produpress\Actito\Console\InstallActito;
 
+/**
+ * Actito Service Provider for Laravel
+ *
+ * @package Produpress\Actito
+ */
 class ActitoServiceProvider extends ServiceProvider
 {
     public function register()

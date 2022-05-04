@@ -5,6 +5,11 @@ namespace Produpress\Actito;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Http;
 
+/**
+ * Wrapper for the Laravel Http client that adds the Actito token to the request
+ *
+ * @package Produpress\Actito
+ */
 class Client
 {
     public string $uri;

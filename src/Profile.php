@@ -2,6 +2,13 @@
 
 namespace Produpress\Actito;
 
+/**
+ * Interface for Actito DATA API V4 Profile
+ *
+ * @link https://developers.actito.com/api-reference/data-v4/#tag/Profiles
+ *
+ * @package Produpress\Actito
+ */
 class Profile
 {
     use ActitoTrait;
@@ -16,6 +23,8 @@ class Profile
 
     /**
      * Show a profile
+     *
+     * @link https://developers.actito.com/api-reference/data-v4#operation/profiles-get-one
      *
      * @param int $profileId Profile Id
      * @return array|null profile data or null if not found
@@ -32,6 +41,8 @@ class Profile
 
     /**
      * Update or create a profile
+     *
+     * @link https://developers.actito.com/api-reference/data-v4#operation/profiles-update-one
      *
      * @param array $profile profile data
      * @return int|null profile id or null
@@ -50,6 +61,7 @@ class Profile
     /**
      * Delete a profile
      *
+     * @link https://developers.actito.com/api-reference/data-v4/#operation/profiles-delete-one
      * @param int $profileId Profile Id
      * @return bool
      */
@@ -66,6 +78,8 @@ class Profile
     /**
      * Get list of subscription for a profile
      *
+     * @link https://developers.actito.com/api-reference/data-v4/#operation/profiles-subscriptions-get-all
+     *
      * @return array|null
      */
     public function subscriptions(int $profileId): array | null
@@ -81,6 +95,8 @@ class Profile
 
     /**
      * Add a subscription to a profile
+     *
+     * @link https://developers.actito.com/api-reference/data-v4/#operation/profiles-subscriptions-add
      *
      * @param int $profileId Profile Id
      * @param string $subscriptionName
@@ -100,6 +116,8 @@ class Profile
     /**
      * Remove a subscription from a profile
      *
+     * @link https://developers.actito.com/api-reference/data-v4/#operation/profiles-subscriptions-delete-one
+     *
      * @param int $profileId Profile Id
      * @param string $subscriptionName
      * @return bool
@@ -118,6 +136,8 @@ class Profile
     /**
      * Get list of segmentations for a profile
      *
+     * @link https://developers.actito.com/api-reference/data-v4/#operation/profiles-segmentations-get-all
+     *
      * @param int $profileId Profile Id
      * @return array|null
      */
@@ -135,11 +155,13 @@ class Profile
     /**
      * Add a segmentation to a profile
      *
+     * @link https://developers.actito.com/api-reference/data-v4/#operation/profiles-segmentations-createorupdate
+     *
      * @param int $profileId Profile Id
      * @param string $subscriptionName
      * @return bool
      */
-    public function segment(int $profileId,string $segmentationName): bool
+    public function segment(int $profileId, string $segmentationName): bool
     {
         $url = 'v4/entity/' . $this->entity
             . '/table/' . $this->tableId
@@ -154,11 +176,13 @@ class Profile
      * Remove a segmentation from a profile
      * (I know. "to unsegment" in not a real verb)
      *
+     * @link https://developers.actito.com/api-reference/data-v4/#operation/profiles-segmentations-delete-one
+     *
      * @param int $profileId Profile Id
      * @param string $segmentationName
      * @return bool
      */
-    public function unsegment(int $profileId,string $segmentationName): bool
+    public function unsegment(int $profileId, string $segmentationName): bool
     {
         $url = 'v4/entity/' . $this->entity
             . '/table/' . $this->tableId

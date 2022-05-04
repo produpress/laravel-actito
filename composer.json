@@ -51,7 +51,7 @@
         "test": "vendor/bin/pest",
         "test-coverage": "vendor/bin/pest --coverage",
         "format": "vendor/bin/php-cs-fixer fix --allow-risky=yes",
-        "doc" : "phpdoc run -d src -t doc --template=vendor/onspli/phpdoc-markdown/templates/public-onefile && mv doc/README.md doc/laravel-actito.md"
+        "doc" : "phpdoc run -d src -t doc --template=vendor/onspli/phpdoc-markdown/templates/public-onefile"
     },
     "config": {
         "sort-packages": true,

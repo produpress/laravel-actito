@@ -2,6 +2,11 @@
 
 namespace Produpress\Actito;
 
+/**
+ * Wrapper for Actito API
+ *
+ * @package Produpress\Actito
+ */
 class Actito
 {
     /**
@@ -43,6 +48,7 @@ class Actito
         foreach ($inputData as $key => $value) {
             $outputData[] = ['name' => $key, $valueName => $value];
         }
+
         return $outputData;
     }
 }

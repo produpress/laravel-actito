@@ -2,6 +2,11 @@
 
 namespace Produpress\Actito;
 
+/**
+ * A trait for Actito classes.
+ *
+ * @package Produpress\Actito
+ */
 trait ActitoTrait
 {
     public string $entity;
@@ -31,6 +36,4 @@ trait ActitoTrait
 
         return $this;
     }
-
-
 }
