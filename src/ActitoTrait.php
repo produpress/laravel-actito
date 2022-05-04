@@ -16,7 +16,6 @@ trait ActitoTrait
     private function settings()
     {
         $this->entity = config('actito.entity');
-        $this->table = config('actito.table');
         $this->client = new Client();
     }
 
@@ -33,16 +32,5 @@ trait ActitoTrait
         return $this;
     }
 
-    /**
-     * Set table
-     *
-     * @param string $table
-     * @return $this
-     */
-    public function table(string $table)
-    {
-        $this->table = $table;
 
-        return $this;
-    }
 }

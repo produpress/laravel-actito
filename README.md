@@ -20,18 +20,17 @@ composer require produpress/laravel-actito
 
 
 ## Configuration
-Setup the environment variables
+
+### Environment variables
 
 ```
 ACTITO_URI=https://api3.actito.com/
 ACTITO_KEY=0123456789abcdf0123456789abcdef
-#Default entity
-ACTITO_ENTITY=EntityName
-#Default table
-ACTITO_TABLE=6
+ACTITO_ENTITY=DefaultEntity
+ACTITO_TABLE=1
 ```
 
-You may also publish the config file with
+You may also publish a config file with
 
 ```bash
 php artisan actito:install
@@ -40,17 +39,14 @@ php artisan actito:install
 ## Usage
 
 ```php
-//Display a profile from a table
-Actito::profile(1465)->get();
+//Display a specific profile by Id from the default table (see config)
+Actito::profile()->get(123);
 
-//Display a profile from a table and specify the entity and the table Id
-Actito::profile(1465)->entity('YourEntityName')->table('2')->get();
-```
+//Display a profile from another table and entity.
+Actito::profile(8)->entity('AnotherEntity')->get(456);
 
-## Testing
-
-```bash
-composer test
+//Create or update a profile and get the profile Id
+$profileId = Actito::profile()->save($profileData);
 ```
 
 ## Changelog

@@ -9,12 +9,12 @@ class Actito
      *
      * @link https://developers.actito.com/api-reference/data-v4/#tag/Profiles
      *
-     * @param int|null $profileId
+     * @param string|null $tableId
      * @return Profile
      */
-    public function profile(int $profileId = null)
+    public function profile(string $tableId = null)
     {
-        return new Profile($profileId);
+        return new Profile($tableId);
     }
 
     /**
@@ -39,11 +39,10 @@ class Actito
      */
     public function namedValues(array $inputData, string $valueName = 'value'): array
     {
-        $outpudData = [];
+        $outputData = [];
         foreach ($inputData as $key => $value) {
-            $outpudData[] = ['name' => $key, $valueName => $value];
+            $outputData[] = ['name' => $key, $valueName => $value];
         }
-
-        return $outpudData;
+        return $outputData;
     }
 }
