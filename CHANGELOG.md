@@ -2,6 +2,13 @@
 
 All notable changes to `laravel-actito` will be documented in this file.
 
+## 0.2.0 - 2022-05-04
+
+- Add documentation
+- Update Actito::profile()
+
+**Full Changelog**: https://github.com/produpress/laravel-actito/compare/0.1.0...0.2.0
+
 ## 0.1.0 - 2022-05-03
 
 ## What's Changed
