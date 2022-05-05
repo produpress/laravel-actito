@@ -158,7 +158,7 @@ class Profile
      * @link https://developers.actito.com/api-reference/data-v4/#operation/profiles-segmentations-createorupdate
      *
      * @param int $profileId Profile Id
-     * @param string $subscriptionName
+     * @param string $segmentationName
      * @return bool
      */
     public function segment(int $profileId, string $segmentationName): bool
