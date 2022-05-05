@@ -17,12 +17,7 @@ class ActitoServiceProvider extends ServiceProvider
         $this->mergeConfigFrom(__DIR__ . '/../config/actito.php', 'actito');
 
         $this->app->bind('actito', function ($app) {
-            return new Actito(
-                config('actito.uri'),
-                config('actito.entity'),
-                config('actito.table'),
-                config('actito.key')
-            );
+            return new Actito();
         });
     }
 
