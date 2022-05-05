@@ -18,7 +18,7 @@ class Profile
     public function __construct(string $tableId = null)
     {
         $this->settings();
-        $this->tableId = $tableId ?? config('actito_table');
+        $this->tableId = $tableId ?? config('actito.table');
     }
 
     /**
