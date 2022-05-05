@@ -2,15 +2,14 @@
 
 namespace Produpress\Actito\Tests;
 
-use Orchestra\Testbench\TestCase as OrchestraTestCase;
+use Orchestra\Testbench\TestCase as Orchestra;
 use Produpress\Actito\ActitoServiceProvider;
 
-class TestCase extends OrchestraTestCase
+class TestCase extends Orchestra
 {
-    public function setUp(): void
+    protected function setUp(): void
     {
         parent::setUp();
-        // additional setup
     }
 
     protected function getPackageProviders($app)
@@ -20,8 +19,11 @@ class TestCase extends OrchestraTestCase
         ];
     }
 
-    protected function getEnvironmentSetUp($app)
+    public function getEnvironmentSetUp($app)
     {
-        // perform environment setup
+        config()->set('actito.uri', 'https://test.example.net/');
+        config()->set('actito.key', '123');
+        config()->set('actito.entity', 'testing');
+        config()->set('actito.table', '1');
     }
 }

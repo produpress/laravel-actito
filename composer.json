@@ -21,6 +21,7 @@
     },
     "require-dev": {
         "friendsofphp/php-cs-fixer": "^3.0",
+        "guzzlehttp/guzzle": "^7.4",
         "onspli/phpdoc-markdown": "^0.3.3",
         "orchestra/testbench": "^6.0|^7.0",
         "pestphp/pest": "^1.20",
