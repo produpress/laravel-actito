@@ -30,7 +30,7 @@ class Actito
      * @param string $customTableId
      * @return CustomTable
      */
-    public function customTable(string $customTableId)
+    public function customTable(string $customTableId = null)
     {
         return new CustomTable($customTableId);
     }

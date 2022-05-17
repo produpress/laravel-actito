@@ -3,7 +3,7 @@
 namespace Produpress\Actito;
 
 /**
- * Interface for Actito DATA API V4 Profile
+ * Interface for Actito Data API Profile
  *
  * @link https://developers.actito.com/api-reference/data-v4/#tag/Profiles
  *
@@ -191,5 +191,39 @@ class Profile
         $response = $this->client->delete($url);
 
         return $response->successful();
+    }
+
+    /**
+     * DataModel V5
+     */
+
+    /**
+     * List of profile tables
+     *
+     * @link https://developers.actito.com/api-reference/datamodel-v5/#operation/profiletables-get-list
+     *
+     * @return array|null list of custom tables
+     */
+    public function tables(): array | null
+    {
+        $url = 'v5/entities/' . $this->entity . '/profile-tables';
+        $response = $this->client->get($url);
+
+        return $response->json();
+    }
+
+    /**
+     * Get a profile table schema
+     *
+     * @link https://developers.actito.com/api-reference/datamodel-v5/#operation/profiletables-get-one
+     *
+     * @return array|null custom table schema
+     */
+    public function schema(): array | null
+    {
+        $url = 'v5/entities/' . $this->entity . '/profile-tables/' . $this->tableId;
+        $response = $this->client->get($url);
+
+        return $response->json();
     }
 }
