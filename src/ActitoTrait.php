@@ -10,7 +10,6 @@ namespace Produpress\Actito;
 trait ActitoTrait
 {
     public string $entity;
-    public string $table;
     public Client $client;
 
     /**

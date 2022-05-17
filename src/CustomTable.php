@@ -3,12 +3,9 @@
 namespace Produpress\Actito;
 
 /**
- * Interface for Actito DATA API V4 Profile
+ * Interface for Actito DataModel API Custom Table
  *
  * @link https://developers.actito.com/api-reference/data-v4/#tag/Custom-Table-Records
- *
- * @todo Add list of records method
- * @todo Add update a record method
  *
  * @package Produpress\Actito
  */
@@ -16,14 +13,14 @@ class CustomTable
 {
     use ActitoTrait;
 
-    public string $customTableId;
+    public ?string $customTableId;
 
     /**
      *
      * @param string $customTableId
      * @return void
      */
-    public function __construct(string $customTableId)
+    public function __construct(string $customTableId = null)
     {
         $this->settings();
         $this->customTableId = $customTableId;
@@ -80,5 +77,40 @@ class CustomTable
         $response = $this->client->delete($url);
 
         return $response->successful();
+    }
+
+    /**
+     * DataModel V5
+     */
+
+    /**
+     * List custom tables
+     *
+     * @link https://developers.actito.com/api-reference/datamodel-v5/#operation/customtables-get-list
+     *
+     * @return array|null list of custom tables
+     */
+    public function tables(): array | null
+    {
+        $url = 'v5/entities/' . $this->entity . '/custom-tables';
+        $response = $this->client->get($url);
+
+        return $response->json();
+    }
+
+    /**
+     * Get a custom table schema
+     *
+     * @link https://developers.actito.com/api-reference/datamodel-v5/#operation/customtables-get-one
+     *
+     * @param string $customTableId
+     * @return array|null custom table schema
+     */
+    public function schema(): array | null
+    {
+        $url = 'v5/entities/' . $this->entity . '/custom-tables/' . $this->customTableId;
+        $response = $this->client->get($url);
+
+        return $response->json();
     }
 }

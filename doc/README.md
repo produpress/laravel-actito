@@ -18,14 +18,16 @@
 | [Client::post](#Clientpost) | Http post |
 | [Client::put](#Clientput) | Http put |
 | [Client::delete](#Clientdelete) | Http delete |
-| [**CustomTable**](#CustomTable) | Interface for Actito DATA API V4 Profile |
+| [**CustomTable**](#CustomTable) | Interface for Actito DataModel API Custom Table |
 | [CustomTable::__construct](#CustomTable__construct) |  |
 | [CustomTable::get](#CustomTableget) | Show a record |
 | [CustomTable::save](#CustomTablesave) | Update or create a record |
 | [CustomTable::delete](#CustomTabledelete) | Delete a record |
+| [CustomTable::tables](#CustomTabletables) | List custom tables |
+| [CustomTable::schema](#CustomTableschema) | Get a custom table schema |
 | [**InstallActito**](#InstallActito) |  |
 | [InstallActito::handle](#InstallActitohandle) |  |
-| [**Profile**](#Profile) | Interface for Actito DATA API V4 Profile |
+| [**Profile**](#Profile) | Interface for Actito Data API Profile |
 | [Profile::__construct](#Profile__construct) |  |
 | [Profile::get](#Profileget) | Show a profile |
 | [Profile::save](#Profilesave) | Update or create a profile |
@@ -36,6 +38,8 @@
 | [Profile::segmentations](#Profilesegmentations) | Get list of segmentations for a profile |
 | [Profile::segment](#Profilesegment) | Add a segmentation to a profile |
 | [Profile::unsegment](#Profileunsegment) | Remove a segmentation from a profile(I know. &quot;to unsegment&quot; in not a real verb) |
+| [Profile::tables](#Profiletables) | List of profile tables |
+| [Profile::schema](#Profileschema) | Get a profile table schema |
 
 ## Actito
 
@@ -79,7 +83,7 @@ Actito::profile( string|null tableId = null ): \Produpress\Actito\Profile
 Custom table
 
 ```php
-Actito::customTable( string customTableId ): \Produpress\Actito\CustomTable
+Actito::customTable( string customTableId = null ): \Produpress\Actito\CustomTable
 ```
 
 
@@ -318,7 +322,7 @@ Client::delete( string url ): mixed
 ---
 ## CustomTable
 
-Interface for Actito DATA API V4 Profile
+Interface for Actito DataModel API Custom Table
 
 
 
@@ -333,7 +337,7 @@ Interface for Actito DATA API V4 Profile
 
 
 ```php
-CustomTable::__construct( string customTableId ): void
+CustomTable::__construct( string customTableId = null ): void
 ```
 
 
@@ -437,6 +441,50 @@ CustomTable::delete( string recordId ): bool
 * https://developers.actito.com/api-reference/data-v4/#operation/customtables-records-delete-one - 
 
 ---
+### CustomTable::tables
+
+List custom tables
+
+```php
+CustomTable::tables(  ): array|null
+```
+
+
+
+
+
+**Return Value:**
+
+list of custom tables
+
+
+**See Also:**
+
+* https://developers.actito.com/api-reference/datamodel-v5/#operation/customtables-get-list - 
+
+---
+### CustomTable::schema
+
+Get a custom table schema
+
+```php
+CustomTable::schema(  ): array|null
+```
+
+
+
+
+
+**Return Value:**
+
+custom table schema
+
+
+**See Also:**
+
+* https://developers.actito.com/api-reference/datamodel-v5/#operation/customtables-get-one - 
+
+---
 ## InstallActito
 
 
@@ -468,7 +516,7 @@ InstallActito::handle(  ): mixed
 ---
 ## Profile
 
-Interface for Actito DATA API V4 Profile
+Interface for Actito Data API Profile
 
 
 
@@ -758,5 +806,49 @@ Profile::unsegment( int profileId, string segmentationName ): bool
 **See Also:**
 
 * https://developers.actito.com/api-reference/data-v4/#operation/profiles-segmentations-delete-one - 
+
+---
+### Profile::tables
+
+List of profile tables
+
+```php
+Profile::tables(  ): array|null
+```
+
+
+
+
+
+**Return Value:**
+
+list of custom tables
+
+
+**See Also:**
+
+* https://developers.actito.com/api-reference/datamodel-v5/#operation/profiletables-get-list - 
+
+---
+### Profile::schema
+
+Get a profile table schema
+
+```php
+Profile::schema(  ): array|null
+```
+
+
+
+
+
+**Return Value:**
+
+custom table schema
+
+
+**See Also:**
+
+* https://developers.actito.com/api-reference/datamodel-v5/#operation/profiletables-get-one - 
 
 ---

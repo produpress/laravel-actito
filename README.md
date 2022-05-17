@@ -38,15 +38,31 @@ php artisan actito:install
 
 ## Usage
 
+### Data
 ```php
-//Display a specific profile by Id from the default table (see config)
+//Get a specific profile by Id from the default table (see config)
 Actito::profile()->get(123);
 
-//Display a profile from another table and entity.
+//Get a profile from another table and entity.
 Actito::profile(8)->entity('AnotherEntity')->get(456);
 
 //Create or update a profile and get the profile Id
 $profileId = Actito::profile()->save($profileData);
+```
+
+### DataModel
+```php
+//Get list of profile tables
+Actito::profile()->tables();
+
+//Get the schema of a profile table with the profile table id
+Actito::profile(8)->schema();
+
+//Get list of custom tables
+Actito::customTable()->tables();
+
+//Get the schema of a custom table witht he custome table id
+Actito::customTable('109675e9-429e-954d-a50f-9e806d70a6ca')->schema();
 ```
 
 More in [Documentation](doc/)
