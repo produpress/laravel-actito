@@ -103,7 +103,6 @@ class CustomTable
      *
      * @link https://developers.actito.com/api-reference/datamodel-v5/#operation/customtables-get-one
      *
-     * @param string $customTableId
      * @return array|null custom table schema
      */
     public function schema(): array | null
