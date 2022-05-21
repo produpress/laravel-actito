@@ -45,6 +45,25 @@ class CustomTable
     }
 
     /**
+     * Search records
+     *
+     * @link https://developers.actito.com/api-reference/data-v4/#operation/customtables-records-get-list
+     *
+     * @param string $searchField Search field
+     * @param string $searchValue Search value
+     * @return array Array of custom table secords
+     */
+    public function search(string $searchField, string $searchValue): array
+    {
+        $url = 'v4/entity/' . $this->entity
+            . '/customTable/' . $this->customTableId
+            . '/record?searchField=' . $searchField . '&searchValue=' . $searchValue;
+        $response = $this->client->get($url);
+
+        return $response->json();
+    }
+
+    /**
      * Update or create a record
      *
      * @link https://developers.actito.com/api-reference/data-v4/#operation/customtables-records-createorupdate

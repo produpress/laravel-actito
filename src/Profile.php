@@ -44,14 +44,15 @@ class Profile
      *
      * @link https://developers.actito.com/api-reference/data-v4#operation/profiles-get-one
      *
-     * @param array $keyValue key=>value
+     * @param string $searchField Search field
+     * @param string $searchValue Search value
      * @return array|null profile data or null if not found
      */
-    public function search(array $keyValue): array | null
+    public function search(string $searchField, string $searchValue): array | null
     {
         $url = 'v4/entity/' . $this->entity
             . '/table/' . $this->tableId
-            . '/profile/' . key($keyValue) . '=' . current($keyValue);
+            . '/profile/' . $searchField . '=' . $searchValue;
         $response = $this->client->get($url);
 
         if ($response->successful()) {

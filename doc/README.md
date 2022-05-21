@@ -21,6 +21,7 @@
 | [**CustomTable**](#CustomTable) | Interface for Actito DataModel API Custom Table |
 | [CustomTable::__construct](#CustomTable__construct) |  |
 | [CustomTable::get](#CustomTableget) | Show a record |
+| [CustomTable::search](#CustomTablesearch) | Search records |
 | [CustomTable::save](#CustomTablesave) | Update or create a record |
 | [CustomTable::delete](#CustomTabledelete) | Delete a record |
 | [CustomTable::tables](#CustomTabletables) | List custom tables |
@@ -386,6 +387,35 @@ profile data or null if not found
 * https://developers.actito.com/api-reference/data-v4/#operation/customtables-records-get-one - 
 
 ---
+### CustomTable::search
+
+Search records
+
+```php
+CustomTable::search( string searchField, string searchValue ): array
+```
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `searchField` | **string** | Search field |
+| `searchValue` | **string** | Search value |
+
+
+**Return Value:**
+
+Array of custom table secords
+
+
+**See Also:**
+
+* https://developers.actito.com/api-reference/data-v4/#operation/customtables-records-get-list - 
+
+---
 ### CustomTable::save
 
 Update or create a record
@@ -585,7 +615,7 @@ profile data or null if not found
 Search a profile
 
 ```php
-Profile::search( array keyValue ): array|null
+Profile::search( string searchField, string searchValue ): array|null
 ```
 
 
@@ -595,7 +625,8 @@ Profile::search( array keyValue ): array|null
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `keyValue` | **array** | key=&gt;value |
+| `searchField` | **string** | Search field |
+| `searchValue` | **string** | Search value |
 
 
 **Return Value:**
