@@ -30,6 +30,7 @@
 | [**Profile**](#Profile) | Interface for Actito Data API Profile |
 | [Profile::__construct](#Profile__construct) |  |
 | [Profile::get](#Profileget) | Show a profile |
+| [Profile::search](#Profilesearch) | Search a profile |
 | [Profile::save](#Profilesave) | Update or create a profile |
 | [Profile::delete](#Profiledelete) | Delete a profile |
 | [Profile::subscriptions](#Profilesubscriptions) | Get list of subscription for a profile |
@@ -567,6 +568,34 @@ Profile::get( int profileId ): array|null
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `profileId` | **int** | Profile Id |
+
+
+**Return Value:**
+
+profile data or null if not found
+
+
+**See Also:**
+
+* https://developers.actito.com/api-reference/data-v4#operation/profiles-get-one - 
+
+---
+### Profile::search
+
+Search a profile
+
+```php
+Profile::search( array keyValue ): array|null
+```
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `keyValue` | **array** | key=&gt;value |
 
 
 **Return Value:**
