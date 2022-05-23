@@ -69,14 +69,33 @@ class CustomTable
      * @link https://developers.actito.com/api-reference/data-v4/#operation/customtables-records-createorupdate
      *
      * @param array $record record data
-     * @return int|null record id or null
+     * @return string|null record id or null
      */
-    public function save(array $record): int | null
+    public function save(array $record): string | null
     {
         $url = 'v4/entity/' . $this->entity
             . '/customTable/' . $this->customTableId
             . '/record';
         $response = $this->client->post($url, $record);
+
+        return $response->json('businessKey');
+    }
+
+    /**
+     * Update only a record
+     *
+     * @link https://developers.actito.com/api-reference/data-v4/#operation/customtables-records-update
+     *
+     * @param string $id The business key of the record to update
+     * @param array $properties record properties
+     * @return string|null record id or null
+     */
+    public function update(string $id, array $properties): string | null
+    {
+        $url = 'v4/entity/' . $this->entity
+            . '/customTable/' . $this->customTableId
+            . '/record/' . $id;
+        $response = $this->client->put($url, $properties);
 
         return $response->json('businessKey');
     }
