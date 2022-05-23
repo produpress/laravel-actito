@@ -28,15 +28,15 @@ class RecordProperty
         return ['properties' => $this->properties];
     }
 
-
     /**
      *
      * @param array $dataArray
      * @return array
      */
-    static public function get(array $dataArray): array
+    public static function get(array $dataArray): array
     {
         $recordProperty = new self($dataArray);
+
         return $recordProperty->getProperties();
     }
 
