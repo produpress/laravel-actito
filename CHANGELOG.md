@@ -2,6 +2,10 @@
 
 All notable changes to `laravel-actito` will be documented in this file.
 
+## 0.3.2 - 2022-05-30
+
+- Update return type for CustomTable::save()
+
 ## 0.3.1 - 2022-05-21
 
 - Add search method in Profile and Custom Table
