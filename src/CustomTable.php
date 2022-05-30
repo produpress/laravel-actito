@@ -69,9 +69,9 @@ class CustomTable
      * @link https://developers.actito.com/api-reference/data-v4/#operation/customtables-records-createorupdate
      *
      * @param array $record record data
-     * @return int|null record id or null
+     * @return string|null record id or null
      */
-    public function save(array $record): int | null
+    public function save(array $record): string | null
     {
         $url = 'v4/entity/' . $this->entity
             . '/customTable/' . $this->customTableId
