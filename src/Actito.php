@@ -36,6 +36,18 @@ class Actito
     }
 
     /**
+     * Campaign
+     *
+     * @link https://developers.actito.com/api-reference/campaigns-v4/#tag/E-mail-campaigns
+     *
+     * @return Campaign
+     */
+    public function campaign()
+    {
+        return new Campaign();
+    }
+
+    /**
      * Convert simple array to paired name/value array
      *
      * @param array $inputData
