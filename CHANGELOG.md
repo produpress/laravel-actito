@@ -2,6 +2,14 @@
 
 All notable changes to `laravel-actito` will be documented in this file.
 
+## 0.4.0 - 2022-05-31
+
+### What's Changed
+
+- Add Campaign trigger by @mnokin in https://github.com/produpress/laravel-actito/pull/6
+
+**Full Changelog**: https://github.com/produpress/laravel-actito/compare/0.3.2...0.4.0
+
 ## 0.3.2 - 2022-05-30
 
 - Update return type for CustomTable::save()
