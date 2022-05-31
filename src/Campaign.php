@@ -44,9 +44,9 @@ class Campaign
             $query['dateFilter'] = $dateFilter;
         }
         $response = $this->client->get($url, $query);
+
         return $response->json();
     }
-
 
     /**
      * Trigger a transactional e-mail
@@ -60,7 +60,6 @@ class Campaign
      */
     public function triggerProfile(string $campaignId, int $profileId, array $parameters): array|null
     {
-
         $url = 'v4/entity/' . $this->entity . '/mail/' . $campaignId . '/profile/' . $profileId;
 
         $data = $this->parametersData($parameters);
@@ -68,7 +67,6 @@ class Campaign
 
         return $response->json();
     }
-
 
     /**
      * Trigger a transactional e-mail
@@ -82,7 +80,6 @@ class Campaign
      */
     public function triggerTransactional(string $campaignId, array $profile, array $parameters): array|null
     {
-
         $url = 'v4/entity/' . $this->entity . '/transactionalmail/' . $campaignId . '/contact';
 
         $data = [
@@ -94,7 +91,6 @@ class Campaign
 
         return $response->json();
     }
-
 
     /**
      * Convert simple array to paired name/value array
@@ -113,7 +109,7 @@ class Campaign
         return ['attributes' => $outputData];
     }
 
-        /**
+    /**
      * Convert simple array to paired name/value array
      *
      * @param array $inputData

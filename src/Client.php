@@ -49,7 +49,7 @@ class Client
      * @param array $query
      * @return mixed
      */
-    public function get(string $url, array $query=null)
+    public function get(string $url, array $query = null)
     {
         return Http::withToken($this->token())->get($this->uri . $url, $query);
     }

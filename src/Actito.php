@@ -47,7 +47,6 @@ class Actito
         return new Campaign();
     }
 
-
     /**
      * Convert simple array to paired name/value array
      *
