@@ -113,7 +113,6 @@ class CustomTable
     {
         $url = 'v5/entities/' . $this->entity . '/custom-tables';
         $response = $this->client->get($url);
-
         return $response->json();
     }
 
@@ -128,6 +127,37 @@ class CustomTable
     {
         $url = 'v5/entities/' . $this->entity . '/custom-tables/' . $this->customTableId;
         $response = $this->client->get($url);
+        return $response->json();
+    }
+
+    /**
+     * Get a custom table schema
+     *
+     * @link https://developers.actito.com/api-reference/datamodel-v5/#operation/customtables-get-one
+     *
+     * @return array|null custom table schema
+     */
+    public function change(array $request): array | null
+    {
+        $url = 'v5/entities/' . $this->entity . '/custom-tables/' . $this->customTableId . '/change-requests';
+        $response = $this->client->post($url, $request);
+        return $response->json();
+    }
+
+
+    /**
+     * Create a custom table
+     *
+     * @link https://developers.actito.com/api-reference/datamodel-v5#operation/customtables-create
+     *
+     * @return array|null custom table schema
+     */
+    public function create(array $stucture): array | null
+    {
+        $url = 'v5/entities/' . $this->entity . '/custom-tables';
+        $response = $this->client->post($url, $stucture);
+
+        ray($response->body());
 
         return $response->json();
     }
