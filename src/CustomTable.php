@@ -115,6 +115,7 @@ class CustomTable
     {
         $url = 'v5/entities/' . $this->entity . '/custom-tables';
         $response = $this->client->get($url);
+
         return $response->json();
     }
 
@@ -129,6 +130,7 @@ class CustomTable
     {
         $url = 'v5/entities/' . $this->entity . '/custom-tables/' . $this->customTableId;
         $response = $this->client->get($url);
+
         return $response->json();
     }
 
@@ -143,9 +145,9 @@ class CustomTable
     {
         $url = 'v5/entities/' . $this->entity . '/custom-tables/' . $this->customTableId . '/change-requests';
         $response = $this->client->post($url, $request);
+
         return $response->json();
     }
-
 
     /**
      * Create a custom table
