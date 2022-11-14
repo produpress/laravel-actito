@@ -69,16 +69,18 @@ class CustomTable
      * @link https://developers.actito.com/api-reference/data-v4/#operation/customtables-records-createorupdate
      *
      * @param array $record record data
-     * @return string|null record id or null
+     * @return string|array|null record id or null
      */
-    public function save(array $record): string | null
+    public function save(array $record): string | array | null
     {
         $url = 'v4/entity/' . $this->entity
             . '/customTable/' . $this->customTableId
             . '/record';
         $response = $this->client->post($url, $record);
-
-        return $response->json('businessKey');
+        if ($response->successful()) {
+            return $response->json('businessKey');
+        }
+        return $response->json();
     }
 
     /**
@@ -156,9 +158,6 @@ class CustomTable
     {
         $url = 'v5/entities/' . $this->entity . '/custom-tables';
         $response = $this->client->post($url, $stucture);
-
-        ray($response->body());
-
         return $response->json();
     }
 }
