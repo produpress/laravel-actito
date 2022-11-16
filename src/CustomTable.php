@@ -80,6 +80,7 @@ class CustomTable
         if ($response->successful()) {
             return $response->json('businessKey');
         }
+
         return $response->json();
     }
 
@@ -160,6 +161,7 @@ class CustomTable
     {
         $url = 'v5/entities/' . $this->entity . '/custom-tables';
         $response = $this->client->post($url, $stucture);
+
         return $response->json();
     }
 }
