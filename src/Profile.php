@@ -184,13 +184,17 @@ class Profile
      * @param string $segmentationName
      * @return bool
      */
-    public function segment(int $profileId, string $segmentationName): bool
+    public function segment(int $profileId, string $segmentationName, string $category = null): bool
     {
+        $data = (! is_null($category) ? ';category=' . $category : '');
         $url = 'v4/entity/' . $this->entity
             . '/table/' . $this->tableId
             . '/profile/' . $profileId
-            . '/segmentation/' . $segmentationName;
+            . '/segmentation/' . $segmentationName . $data;
         $response = $this->client->put($url);
+
+
+        ray($response->body());
 
         return $response->successful();
     }

@@ -96,7 +96,6 @@ class Campaign
      * Convert simple array to paired name/value array
      *
      * @param array $inputData
-     * @param string $valueName
      * @return array
      */
     public function profileData(array $inputData): array

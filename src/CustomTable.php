@@ -69,16 +69,19 @@ class CustomTable
      * @link https://developers.actito.com/api-reference/data-v4/#operation/customtables-records-createorupdate
      *
      * @param array $record record data
-     * @return string|null record id or null
+     * @return string|array|null record id or null
      */
-    public function save(array $record): string | null
+    public function save(array $record): string | array | null
     {
         $url = 'v4/entity/' . $this->entity
             . '/customTable/' . $this->customTableId
             . '/record';
         $response = $this->client->post($url, $record);
+        if ($response->successful()) {
+            return $response->json('businessKey');
+        }
 
-        return $response->json('businessKey');
+        return $response->json();
     }
 
     /**
@@ -128,6 +131,36 @@ class CustomTable
     {
         $url = 'v5/entities/' . $this->entity . '/custom-tables/' . $this->customTableId;
         $response = $this->client->get($url);
+
+        return $response->json();
+    }
+
+    /**
+     * Get a custom table schema
+     *
+     * @link https://developers.actito.com/api-reference/datamodel-v5/#operation/customtables-get-one
+     *
+     * @return array|null custom table schema
+     */
+    public function change(array $request): array | null
+    {
+        $url = 'v5/entities/' . $this->entity . '/custom-tables/' . $this->customTableId . '/change-requests';
+        $response = $this->client->post($url, $request);
+
+        return $response->json();
+    }
+
+    /**
+     * Create a custom table
+     *
+     * @link https://developers.actito.com/api-reference/datamodel-v5#operation/customtables-create
+     *
+     * @return array|null custom table schema
+     */
+    public function create(array $stucture): array | null
+    {
+        $url = 'v5/entities/' . $this->entity . '/custom-tables';
+        $response = $this->client->post($url, $stucture);
 
         return $response->json();
     }
