@@ -186,7 +186,7 @@ class Profile
      */
     public function segment(int $profileId, string $segmentationName, string $category = null): bool
     {
-        $data = (!is_null($category) ? ';category=' . $category : '');
+        $data = (! is_null($category) ? ';category=' . $category : '');
         $url = 'v4/entity/' . $this->entity
             . '/table/' . $this->tableId
             . '/profile/' . $profileId
