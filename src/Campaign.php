@@ -92,6 +92,29 @@ class Campaign
         return $response->json();
     }
 
+     /**
+     * Trigger an e-mail to a bulk of profiles
+     *
+     * @link https://developers.actito.com/api-reference/campaigns-v4#operation/emailcampaigns-trigger-bulk
+     *
+     * @param string $campaignId
+     * @param array $profiles
+     * @return array|null
+     */
+    public function triggerBulk(string $campaignId, array $profiles): array|null
+    {
+        $url = 'v4/entity/' . $this->entity . '/mail/' . $campaignId . '/contact';
+
+        $data = [
+            'profile' => $this->profileData($profile),
+            'parameters' => $this->parametersData($parameters),
+        ];
+
+        $response = $this->client->post($url, $data);
+
+        return $response->json();
+    }
+
     /**
      * Convert simple array to paired name/value array
      *
@@ -107,6 +130,23 @@ class Campaign
 
         return ['attributes' => $outputData];
     }
+
+        /**
+     * Convert simple array to paired name/value array
+     *
+     * @param array $inputData
+     * @return array
+     */
+    public function profilesBulkData(array $inputData): array
+    {
+        $outputData = [];
+        foreach ($inputData as $key => $value) {
+            $outputData[] = ['name' => $key, 'value' => $value];
+        }
+
+        return ['attributes' => $outputData];
+    }
+
 
     /**
      * Convert simple array to paired name/value array
