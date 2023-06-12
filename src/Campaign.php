@@ -147,7 +147,6 @@ class Campaign
         return ['attributes' => $outputData];
     }
 
-
     /**
      * Convert simple array to paired name/value array
      *
