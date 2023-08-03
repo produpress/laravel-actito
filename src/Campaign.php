@@ -138,6 +138,7 @@ class Campaign
         foreach ($inputData as $key => $value) {
             $outputData[] = ['key' => $key, 'values' => [$value]];
         }
+
         return $outputData;
     }
 }
