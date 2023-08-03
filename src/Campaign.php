@@ -49,7 +49,7 @@ class Campaign
     }
 
     /**
-     * Trigger a transactional e-mail
+     * Trigger a profile e-mail
      *
      * @link https://developers.actito.com/api-reference/campaigns-v4/#operation/emailcampaigns-transactional-trigger
      *
@@ -93,6 +93,24 @@ class Campaign
     }
 
     /**
+     * Trigger a bulk campaign
+     *
+     * @link https://developers.actito.com/api-reference/campaigns-v4#operation/emailcampaigns-trigger-bulk
+     *
+     * @param string $campaignId
+     * @param array $data
+     * @return array|null
+     */
+    public function triggerBulkl(string $campaignId, array $data): array|null
+    {
+        $url = 'v4/entity/' . $this->entity . '/mail/' . $campaignId . '/contact';
+
+        $response = $this->client->post($url, $data);
+
+        return $response->json();
+    }
+
+    /**
      * Convert simple array to paired name/value array
      *
      * @param array $inputData
@@ -120,7 +138,6 @@ class Campaign
         foreach ($inputData as $key => $value) {
             $outputData[] = ['key' => $key, 'values' => [$value]];
         }
-
         return $outputData;
     }
 }
