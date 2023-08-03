@@ -101,7 +101,7 @@ class Campaign
      * @param array $data
      * @return array|null
      */
-    public function triggerBulkl(string $campaignId, array $data): array|null
+    public function triggerBulk(string $campaignId, array $data): array|null
     {
         $url = 'v4/entity/' . $this->entity . '/mail/' . $campaignId . '/contact';
 
